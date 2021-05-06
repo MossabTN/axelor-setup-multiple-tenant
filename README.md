@@ -14,10 +14,17 @@ psql postgresql://axelor:axelor@localhost:5432/axelor -c 'CREATE DATABASE backup
 ### Config multi tenancy
 
 #### Enable multi-tenancy
+update the file 'config/app.properties'
 ```properties
 application.multi_tenancy = true
 db.default.visible = false 
 ```
+
+then restart application
+```shell script
+docker-compose restart
+```
+
 
 #### Create a new tenant (example **database**: client1, **user**: client1user, **password**: client1password) from prototype database
 ```shell script
