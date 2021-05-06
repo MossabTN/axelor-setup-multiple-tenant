@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   axelor:
+    container_name: axelor
     image: axelor/aio-erp
     restart: always
     ports:
