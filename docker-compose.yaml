@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  axelor:
+    image: axelor/aio-erp
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+#      - ./certs:/etc/nginx/certs
+      - ./config/app.properties:/var/lib/tomcat/app.properties
+#      - ./config/application.properties:/var/lib/tomcat/application.properties
+      - ./config/axelor.png:/var/lib/tomcat/webapps/static/img/axelor.png
+      - tomcat_temp_data:/var/lib/tomcat/temp
+      - postgresql_data:/var/lib/postgresql
+    environment:
+      - POSTGRES_DB=axelor
+      - POSTGRES_USER=axelor
+      - POSTGRES_PASSWORD=axelor
+
+volumes:
+  postgresql_data: {}
+  tomcat_temp_data: {}
